@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
-// import { Formik } from 'formik';
-// import * as Yup from 'yup';
+import * as ROUTES from '../constants/routes';
 
 const Login = () => {
   const history = useHistory();
@@ -14,7 +13,16 @@ const Login = () => {
 
   const isInvalid = email === '' || password === '';
 
-  const handleLogin = () => {};
+  const handleLogin = async (event) => {
+    event.preventDefault();
+
+    try {
+      await firebase.auth().signInWithEmailAndPassword(email, password);
+      history.push(ROUTES.DASHBOARD);
+    } catch (error) {
+      setError(error.message);
+    }
+  };
 
   useEffect(() => {
     document.title = 'Login - Instagram';
@@ -36,8 +44,8 @@ const Login = () => {
               alt="Instagram"
               className="mt-2 w-6/12 mb-4"
             />
-            {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
           </h1>
+          {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
           <form method="POST" onSubmit={handleLogin}>
             <input
@@ -56,7 +64,7 @@ const Login = () => {
               onChange={({ target }) => setPassword(target.value)}
             />
             <button
-              className={`bg-blue-medium text-white w-full rounded h-8 font-bold ${
+              className={` bg-blue-medium text-white w-full rounded h-8 font-bold hover:bg-blue-medium_hover  focus:outline-none ${
                 isInvalid && 'opacity-50'
               }`}
             >
@@ -66,7 +74,10 @@ const Login = () => {
         </div>
         <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary rounded">
           <p className="text-sm">Don't have an account?</p>
-          <Link to="/signup" className="font-bold text-blue-medium">
+          <Link
+            to="/signup"
+            className="font-bold text-blue-medium hover:text-blue-medium_hover"
+          >
             Sign Up
           </Link>
         </div>
