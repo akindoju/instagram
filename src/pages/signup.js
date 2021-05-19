@@ -3,29 +3,54 @@ import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import * as ROUTES from '../constants/routes';
+import { doesUsernameExist } from '../services/firebase';
 
-const Login = () => {
+const SignUp = () => {
   const history = useHistory();
   const { firebase } = useContext(FirebaseContext);
+  const [username, setUsername] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const isInvalid = email === '' || password === '';
 
-  const handleLogin = async (event) => {
+  const handleSignUp = async (event) => {
     event.preventDefault();
 
-    try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      history.push(ROUTES.DASHBOARD);
-    } catch (error) {
-      setError(error.message);
+    const usernameExists = await doesUsernameExist(username);
+
+    if (!usernameExists.length) {
+      try {
+        const createdUserResult = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(email, password);
+
+        await createdUserResult.user.updateProfile({
+          displayName: username,
+        });
+
+        await firebase.firestore().collection('users').add({
+          userId: createdUserResult.user.uid,
+          username: username.toLowerCase(),
+          fullName,
+          emailAddress: email.toLowerCase(),
+          following: [],
+          dateCreated: Date.now(),
+        });
+
+        history.push(ROUTES.DASHBOARD);
+      } catch (error) {
+        setError(error.message);
+      }
+    } else {
+      setError('That username already exists');
     }
   };
 
   useEffect(() => {
-    document.title = 'Login - Instagram';
+    document.title = 'SignUp - Instagram';
   }, []);
 
   return (
@@ -47,7 +72,7 @@ const Login = () => {
           </h1>
           {error && <p className="mb-4 text-xs text-red-primary">{error}</p>}
 
-          <form method="POST" onSubmit={handleLogin}>
+          <form method="POST" onSubmit={handleSignUp}>
             <input
               type="text"
               aria-label="Enter your email address"
@@ -55,6 +80,24 @@ const Login = () => {
               className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2 outline-none"
               value={email}
               onChange={({ target }) => setEmail(target.value)}
+            />
+
+            <input
+              type="text"
+              aria-label="Enter your Full Name"
+              placeholder="Full Name"
+              className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2 outline-none"
+              value={fullName}
+              onChange={({ target }) => setFullName(target.value)}
+            />
+
+            <input
+              type="text"
+              aria-label="Enter your Username"
+              placeholder="Username"
+              className="text-sm text-gray-base w-full mr-3 py-5 px-4 h-2 border border-gray-primary rounded mb-2 outline-none"
+              value={username}
+              onChange={({ target }) => setUsername(target.value)}
             />
 
             <input
@@ -70,17 +113,17 @@ const Login = () => {
                 isInvalid && 'opacity-50'
               }`}
             >
-              Log In
+              Sign Up
             </button>
           </form>
         </div>
         <div className="flex justify-center items-center flex-col w-full bg-white p-4 border border-gray-primary rounded">
-          <p className="text-sm">Don't have an account?</p>
+          <p className="text-sm">Already have an account?</p>
           <Link
-            to={ROUTES.SIGN_UP}
+            to={ROUTES.LOGIN}
             className="font-bold text-blue-medium hover:text-blue-medium_hover"
           >
-            Sign Up
+            Log In
           </Link>
         </div>
       </div>
@@ -88,4 +131,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
