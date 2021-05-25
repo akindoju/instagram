@@ -19,9 +19,9 @@ const SignUp = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
 
-    const usernameExists = await doesUsernameExist(username);
+    const usernameExists = await doesUsernameExist(username); //if username already exists, doesUsernameExist = true
 
-    if (!usernameExists.length) {
+    if (!usernameExists.length /*if false*/) {
       try {
         const createdUserResult = await firebase
           .auth()
