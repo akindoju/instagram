@@ -4,13 +4,17 @@ import Suggestions from './Suggestions';
 
 const SideBar = () => {
   const {
-    user: { fullName, username, userId, following },
+    user: { docId, fullName, username, userId, following },
   } = useUser();
 
   return (
     <div>
       <User fullName={fullName} username={username} />
-      <Suggestions userId={userId} following={following} />
+      <Suggestions
+        userId={userId}
+        following={following}
+        loggedInUserDocId={docId}
+      />
     </div>
   );
 };

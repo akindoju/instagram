@@ -36,3 +36,35 @@ export const getSuggestedProfiles = async (userId, following) => {
         profile.userId !== userId && !following.includes(profile.userId) //making sure users accnt and accnts already being followed don't show up as a suggestion and
     );
 };
+
+export const updateLoggedInUserFollowing = async (
+  loggedInUserDocId, //docId of currently logged in user (me)
+  profileId, //profile id of user I want to follow
+  isFollowingUser //true of false
+) => {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(loggedInUserDocId)
+    .update({
+      following: isFollowingUser
+        ? FieldValue.arrayRemove(profileId)
+        : FieldValue.arrayUnion(profileId),
+    });
+};
+
+export const updateFollowedUserFollowers = async (
+  profileDocId, //profile id of user I want to follow
+  loggedInUserDocId, //docId of currently logged in user (me)
+  isFollowingUser //true of false
+) => {
+  return firebase
+    .firestore()
+    .collection('users')
+    .doc(profileDocId)
+    .update({
+      followers: isFollowingUser
+        ? FieldValue.arrayRemove(loggedInUserDocId)
+        : FieldValue.arrayUnion(loggedInUserDocId),
+    });
+};
