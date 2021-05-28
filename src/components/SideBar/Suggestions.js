@@ -14,8 +14,6 @@ const Suggestions = ({ userId, following, loggedInUserDocId }) => {
     };
 
     userId && suggestedProfiles();
-
-    console.log(profiles);
   }, [userId]);
 
   return !profiles ? (

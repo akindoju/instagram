@@ -38,7 +38,7 @@ const SuggestedProfile = ({
         </Link>
       </div>
       <button
-        className="text-xs font-bold text-blue-medium"
+        className="text-xs font-bold text-blue-medium focus:outline-none"
         type="button"
         onClick={handleFollowUser}
       >
