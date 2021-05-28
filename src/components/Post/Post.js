@@ -1,11 +1,13 @@
 import { useRef } from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
+import Image from './Image';
 
 const Post = ({ content }) => {
   return (
-    <div>
+    <div className="rounded col-span-4 border bg-white border-gray-primary mb-16">
       <Header username={content.username} />
+      <Image src={content.imageSrc} caption={content.caption} />
     </div>
   );
 };
