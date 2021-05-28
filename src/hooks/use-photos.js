@@ -18,6 +18,7 @@ const usePhotos = () => {
         followedUserPhotos = await getPhotos(userId, following);
       }
 
+      //sorting photos by date created where newest photo is first
       followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
       setPhotos(followedUserPhotos);
     };
