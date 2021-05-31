@@ -7408,49 +7408,19 @@ video {
   opacity: 1;
 }
 
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+.outline-blue_medium {
+  outline: 2px solid #0095f6;
+  outline-offset: 0;
 }
 
-.outline-white {
-  outline: 2px dotted white;
-  outline-offset: 2px;
+.focus-within\:outline-blue_medium:focus-within {
+  outline: 2px solid #0095f6;
+  outline-offset: 0;
 }
 
-.outline-black {
-  outline: 2px dotted black;
-  outline-offset: 2px;
-}
-
-.focus-within\:outline-none:focus-within {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.focus-within\:outline-white:focus-within {
-  outline: 2px dotted white;
-  outline-offset: 2px;
-}
-
-.focus-within\:outline-black:focus-within {
-  outline: 2px dotted black;
-  outline-offset: 2px;
-}
-
-.focus\:outline-none:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.focus\:outline-white:focus {
-  outline: 2px dotted white;
-  outline-offset: 2px;
-}
-
-.focus\:outline-black:focus {
-  outline: 2px dotted black;
-  outline-offset: 2px;
+.focus\:outline-blue_medium:focus {
+  outline: 2px solid #0095f6;
+  outline-offset: 0;
 }
 
 .overflow-auto {
@@ -25066,49 +25036,19 @@ video {
     opacity: 1;
   }
 
-  .sm\:outline-none {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  .sm\:outline-blue_medium {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .sm\:outline-white {
-    outline: 2px dotted white;
-    outline-offset: 2px;
+  .sm\:focus-within\:outline-blue_medium:focus-within {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .sm\:outline-black {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .sm\:focus-within\:outline-none:focus-within {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .sm\:focus-within\:outline-white:focus-within {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .sm\:focus-within\:outline-black:focus-within {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .sm\:focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .sm\:focus\:outline-white:focus {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .sm\:focus\:outline-black:focus {
-    outline: 2px dotted black;
-    outline-offset: 2px;
+  .sm\:focus\:outline-blue_medium:focus {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
   .sm\:overflow-auto {
@@ -42589,49 +42529,19 @@ video {
     opacity: 1;
   }
 
-  .md\:outline-none {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  .md\:outline-blue_medium {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .md\:outline-white {
-    outline: 2px dotted white;
-    outline-offset: 2px;
+  .md\:focus-within\:outline-blue_medium:focus-within {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .md\:outline-black {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .md\:focus-within\:outline-none:focus-within {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .md\:focus-within\:outline-white:focus-within {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .md\:focus-within\:outline-black:focus-within {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .md\:focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .md\:focus\:outline-white:focus {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .md\:focus\:outline-black:focus {
-    outline: 2px dotted black;
-    outline-offset: 2px;
+  .md\:focus\:outline-blue_medium:focus {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
   .md\:overflow-auto {
@@ -60112,49 +60022,19 @@ video {
     opacity: 1;
   }
 
-  .lg\:outline-none {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  .lg\:outline-blue_medium {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .lg\:outline-white {
-    outline: 2px dotted white;
-    outline-offset: 2px;
+  .lg\:focus-within\:outline-blue_medium:focus-within {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .lg\:outline-black {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .lg\:focus-within\:outline-none:focus-within {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .lg\:focus-within\:outline-white:focus-within {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .lg\:focus-within\:outline-black:focus-within {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .lg\:focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .lg\:focus\:outline-white:focus {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .lg\:focus\:outline-black:focus {
-    outline: 2px dotted black;
-    outline-offset: 2px;
+  .lg\:focus\:outline-blue_medium:focus {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
   .lg\:overflow-auto {
@@ -77635,49 +77515,19 @@ video {
     opacity: 1;
   }
 
-  .xl\:outline-none {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  .xl\:outline-blue_medium {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .xl\:outline-white {
-    outline: 2px dotted white;
-    outline-offset: 2px;
+  .xl\:focus-within\:outline-blue_medium:focus-within {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .xl\:outline-black {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .xl\:focus-within\:outline-none:focus-within {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .xl\:focus-within\:outline-white:focus-within {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .xl\:focus-within\:outline-black:focus-within {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .xl\:focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .xl\:focus\:outline-white:focus {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .xl\:focus\:outline-black:focus {
-    outline: 2px dotted black;
-    outline-offset: 2px;
+  .xl\:focus\:outline-blue_medium:focus {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
   .xl\:overflow-auto {
@@ -95158,49 +95008,19 @@ video {
     opacity: 1;
   }
 
-  .\32xl\:outline-none {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
+  .\32xl\:outline-blue_medium {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .\32xl\:outline-white {
-    outline: 2px dotted white;
-    outline-offset: 2px;
+  .\32xl\:focus-within\:outline-blue_medium:focus-within {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
-  .\32xl\:outline-black {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .\32xl\:focus-within\:outline-none:focus-within {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .\32xl\:focus-within\:outline-white:focus-within {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .\32xl\:focus-within\:outline-black:focus-within {
-    outline: 2px dotted black;
-    outline-offset: 2px;
-  }
-
-  .\32xl\:focus\:outline-none:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-  }
-
-  .\32xl\:focus\:outline-white:focus {
-    outline: 2px dotted white;
-    outline-offset: 2px;
-  }
-
-  .\32xl\:focus\:outline-black:focus {
-    outline: 2px dotted black;
-    outline-offset: 2px;
+  .\32xl\:focus\:outline-blue_medium:focus {
+    outline: 2px solid #0095f6;
+    outline-offset: 0;
   }
 
   .\32xl\:overflow-auto {

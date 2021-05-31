@@ -28,6 +28,9 @@ module.exports = {
         primary: '#ed4956',
       },
     },
+    outline: {
+      blue_medium: '2px solid #0095f6',
+    },
   },
   variants: {
     extend: {
