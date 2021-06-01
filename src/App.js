@@ -5,6 +5,8 @@ import useAuthListener from './hooks/use-auth-listener';
 import UserContext from './context/user';
 import ProtectedRoutes from './helpers/ProtectedRoute';
 import IsUserLoggedIn from './helpers/IsUserLoggedIn';
+
+//using lazy loader to pull in only needed components
 const Profile = lazy(() => import('./pages/profile'));
 const Login = lazy(() => import('./pages/login'));
 const Dashboard = lazy(() => import('./pages/dashboard'));
@@ -35,13 +37,7 @@ function App() {
               <SignUp />
             </IsUserLoggedIn>
 
-            <IsUserLoggedIn
-              path={ROUTES.PROFILE}
-              loggedInPath={ROUTES.DASHBOARD}
-              user={user}
-            >
-              <Profile />
-            </IsUserLoggedIn>
+            <Route path={ROUTES.PROFILE} component={Profile} />
 
             <ProtectedRoutes path={ROUTES.DASHBOARD} exact user={user}>
               <Dashboard />
