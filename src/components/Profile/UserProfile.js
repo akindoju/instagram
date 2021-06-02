@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from 'react';
 import {
   getUserByUsername,
-  getUserPhotosByUsername,
+  getUserPhotosByUserId,
 } from '../../services/firebase';
 import Header from './Header';
 import PropTypes from 'prop-types';
@@ -22,7 +22,7 @@ const UserProfile = ({ user }) => {
 
   useEffect(() => {
     const getProfileInfoAndPhotos = async () => {
-      const photos = await getUserPhotosByUsername(user.username);
+      const photos = await getUserPhotosByUserId(user.userId);
       dispatch({
         profile: user,
         photoCollection: photos,

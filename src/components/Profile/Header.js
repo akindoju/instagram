@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import useUser from '../../hooks/use-user';
-import { isUserFollowingProfile } from '../../services/firebase';
+import { isUserFollowingProfile, toggleFollow } from '../../services/firebase';
 
 const Header = ({
   photosCount,
@@ -21,13 +21,18 @@ const Header = ({
   const [isFollowingProfile, setIsFollowingProfile] = useState(false);
   const activeBtnFollow = user.username && user.username !== profileUsername;
 
-  const handleToggleFollow = () => {
+  const handleToggleFollow = async () => {
     setIsFollowingProfile((isFollowingProfile) => !isFollowingProfile);
     setFollowerCount({
-      followerCount: isFollowingProfile
-        ? followers.length - 1
-        : followers.length + 1,
+      followerCount: isFollowingProfile ? followerCount - 1 : followerCount + 1,
     });
+    await toggleFollow(
+      isFollowingProfile,
+      user.docId,
+      profileDocId,
+      profileUserId,
+      user.userId
+    );
   };
 
   useEffect(() => {
@@ -36,7 +41,7 @@ const Header = ({
         user.username,
         profileUserId
       );
-      setIsFollowingProfile(isFollowing);
+      setIsFollowingProfile(!!isFollowing);
     };
 
     if (user.username && profileUserId) {
@@ -82,9 +87,9 @@ const Header = ({
                 {photosCount === 1 ? 'post' : 'posts'}
               </p>
               <p className="mr-10">
-                <span className="font-bold">{followers.length}</span>
+                <span className="font-bold">{followerCount}</span>
                 {` `}
-                {followers.length === 1 ? 'follower' : 'followers'}
+                {followerCount === 1 ? 'follower' : 'followers'}
               </p>
               <p className="mr-10">
                 <span className="font-bold">{following.length}</span>
@@ -94,6 +99,11 @@ const Header = ({
             </>
           )}
         </div>
+        <div className="container mt-4">
+          <p className="font-medium">
+            {!fullName ? <Skeleton count={1} height={24} /> : fullName}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -101,8 +111,8 @@ const Header = ({
 
 export default Header;
 
-Header.PropTypes = {
-  photosCount: PropTypes.string.isRequired,
+Header.propTypes = {
+  photosCount: PropTypes.number.isRequired,
   profile: PropTypes.shape({
     docId: PropTypes.string,
     userId: PropTypes.string,
