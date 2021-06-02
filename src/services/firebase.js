@@ -25,7 +25,7 @@ export const getUserByUsername = async (username) => {
 
 export const getUserPhotosByUsername = async (username) => {
   const [user] = await getUserByUsername(username);
-  const result = firebase
+  const result = await firebase
     .firestore()
     .collection('photos')
     .where('userId', '==', user.userId)

@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useReducer } from 'react';
+import { useEffect, useReducer } from 'react';
 import {
   getUserByUsername,
   getUserPhotosByUsername,
@@ -16,10 +15,10 @@ const UserProfile = ({ user }) => {
     followerCount: 0,
   };
 
-  const [{ profile, photoCollection, followerCount }, dispatch] = useReducer({
+  const [{ profile, photoCollection, followerCount }, dispatch] = useReducer(
     reducer,
-    initalState,
-  });
+    initalState
+  );
 
   useEffect(() => {
     const getProfileInfoAndPhotos = async () => {
@@ -36,7 +35,12 @@ const UserProfile = ({ user }) => {
 
   return (
     <>
-      <Header />
+      <Header
+        photosCount={photoCollection ? photoCollection.length : 0}
+        profile={profile}
+        followerCount={followerCount}
+        setFollowerCount={dispatch}
+      />
       <Photos photos={photoCollection} />
     </>
   );

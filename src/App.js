@@ -42,7 +42,7 @@ function App() {
             <ProtectedRoutes path={ROUTES.DASHBOARD} exact user={user}>
               <Dashboard />
             </ProtectedRoutes>
-            <Route component={NotFound} />
+            <Route path={ROUTES.NOT_FOUND} component={NotFound} />
           </Switch>
         </Suspense>
       </Router>

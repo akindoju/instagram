@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router';
 import { getUserByUsername } from '../services/firebase';
 import * as ROUTES from '../constants/routes';
-import Header from '../components/Header';
 import UserProfile from '../components/Profile/UserProfile';
+import Header from '../components/Header';
 
 const Profile = () => {
   const { username } = useParams();
@@ -12,9 +12,9 @@ const Profile = () => {
 
   useEffect(() => {
     const checkUserExists = async () => {
-      const user = await getUserByUsername(username);
-      if (user.length > 0) {
-        setUser(user[0]);
+      const [user] = await getUserByUsername(username);
+      if (user.userId) {
+        setUser(user);
       } else {
         history.push(ROUTES.NOT_FOUND);
       }
@@ -23,14 +23,9 @@ const Profile = () => {
     checkUserExists();
   }, [username, history]);
 
-  return user?.length > 0 ? (
+  return user?.username ? (
     <div className="bg-gray-background">
-      <Header
-        photosCount={photosCollection ? photosCollection.length : 0}
-        profile={profile}
-        followerCount={followerCount}
-        setFollowerCount={dispatch}
-      />
+      <Header />
       <div className="mx-auto max-w-screen-lg">
         <UserProfile user={user} />
       </div>

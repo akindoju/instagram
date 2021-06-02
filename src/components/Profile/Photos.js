@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 
-const Photos = ({ photos }) => {};
+const Photos = ({ photos }) => {
+  return null;
+};
 
 export default Photos;
 
