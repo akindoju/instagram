@@ -11,7 +11,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const isInvalid = email === '' || password === '';
+  const isInvalid = email.length < 1 || password.length < 1;
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -30,13 +30,7 @@ const Login = () => {
 
   return (
     <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-      <div className="flex w-3/5">
-        <img
-          src="/images/iphone-with-profile.jpg"
-          alt="iphone with Instagram app"
-        />
-      </div>
-      <div className="flex flex-col w-2/5">
+      <div className="flex flex-col mx-auto">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
           <h1 className="flex justify-center w-full">
             <img
@@ -66,9 +60,10 @@ const Login = () => {
               onChange={({ target }) => setPassword(target.value)}
             />
             <button
-              className={` bg-blue-medium text-white w-full rounded h-8 font-bold hover:bg-blue-medium_hover  focus:outline-none ${
-                isInvalid && 'opacity-50'
+              className={`bg-green-medium text-white w-full rounded h-8 font-bold hover:bg-green-medium_hover  focus:outline-none ${
+                isInvalid && 'opacity-50 cursor-default'
               }`}
+              disabled={isInvalid}
             >
               Log In
             </button>
@@ -78,7 +73,7 @@ const Login = () => {
           <p className="text-sm">Don't have an account?</p>
           <Link
             to={ROUTES.SIGN_UP}
-            className="font-bold text-blue-medium hover:text-blue-medium_hover"
+            className="font-bold text-green-medium hover:text-green-medium_hover"
           >
             Sign Up
           </Link>
