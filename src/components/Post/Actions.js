@@ -44,7 +44,7 @@ const Actions = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
             stroke="currentColor"
             tabIndex={0}
             className={`w-8 mr-4 select-none cursor-pointer focus:outline-none ${
-              toggleLiked ? 'fill-red text-red-primary' : 'text-black-light'
+              toggleLiked ? 'fill-blue text-blue-primary' : 'text-black-light'
             }`}
           >
             <path

@@ -7,11 +7,12 @@ module.exports = {
   },
   theme: {
     fill: (theme) => ({
-      red: theme('colors.red.primary'),
+      blue: theme('colors.blue.primary'),
     }),
     colors: {
       white: '#ffffff',
       blue: {
+        primary: '#0095f6',
         medium: '#24ca93',
         medium_hover: '#10aa77',
       },
