@@ -8,7 +8,7 @@ const Actions = ({ docId, totalLikes, likedPhoto, handleFocus }) => {
   const [likes, setLikes] = useState(totalLikes);
   const { firebase, FieldValue } = useContext(FirebaseContext);
   const {
-    user: { uid: userId = '' },
+    user: { uid: userId },
   } = useContext(UserContext); //destructuring uid from user and setting it to userId which is set to ''
 
   const handleToggleLiked = async () => {

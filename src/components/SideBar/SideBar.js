@@ -1,6 +1,6 @@
 import User from './User';
 import Suggestions from './Suggestions';
-import { useContext } from 'react/cjs/react.production.min';
+import { useContext } from 'react';
 import LoggedInUserContext from '../../context/loggedInUser';
 
 const SideBar = () => {

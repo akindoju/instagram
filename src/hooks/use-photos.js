@@ -6,10 +6,8 @@ const usePhotos = (user) => {
 
   useEffect(() => {
     const getTimelinePhotos = async () => {
-      let followedUserPhotos = [];
-
-      if (user?.following.length > 0) {
-        const followedUserPhotos = await getPhotos(user.userId, following); //sorting photos by date created where newest photo is first
+      if (user?.following?.length > 0) {
+        const followedUserPhotos = await getPhotos(user.userId, user.following); //sorting photos by date created where newest photo is first
         followedUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
         setPhotos(followedUserPhotos);
       }
