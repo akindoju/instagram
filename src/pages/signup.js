@@ -14,7 +14,8 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const isInvalid = email === '' || password === '';
+  const isInvalid =
+    email === '' || password === '' || username === '' || fullName === '';
 
   const handleSignUp = async (event) => {
     event.preventDefault();
@@ -57,13 +58,7 @@ const SignUp = () => {
 
   return (
     <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-      <div className="flex w-3/5">
-        <img
-          src="/images/iphone-with-profile.jpg"
-          alt="iphone with Instagram app"
-        />
-      </div>
-      <div className="flex flex-col w-2/5">
+      <div className="flex flex-col w-3/5 mx-auto">
         <div className="flex flex-col items-center bg-white p-4 border border-gray-primary mb-4 rounded">
           <h1 className="flex justify-center w-full">
             <img
@@ -112,8 +107,9 @@ const SignUp = () => {
             />
             <button
               className={` bg-blue-medium text-white w-full rounded h-8 font-bold hover:bg-blue-medium_hover  focus:outline-none ${
-                isInvalid && 'opacity-50'
+                isInvalid && 'opacity-50 cursor-default'
               }`}
+              disabled={isInvalid}
             >
               Sign Up
             </button>

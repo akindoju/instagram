@@ -12,10 +12,6 @@ module.exports = {
     colors: {
       white: '#ffffff',
       blue: {
-        medium: '#6ee7b7',
-        medium_hover: '#098be2',
-      },
-      green: {
         medium: '#24ca93',
         medium_hover: '#10aa77',
       },

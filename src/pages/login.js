@@ -60,7 +60,7 @@ const Login = () => {
               onChange={({ target }) => setPassword(target.value)}
             />
             <button
-              className={`bg-green-medium text-white w-full rounded h-8 font-bold hover:bg-green-medium_hover  focus:outline-none ${
+              className={`bg-blue-medium text-white w-full rounded h-8 font-bold hover:bg-blue-medium_hover  focus:outline-none ${
                 isInvalid && 'opacity-50 cursor-default'
               }`}
               disabled={isInvalid}
@@ -73,7 +73,7 @@ const Login = () => {
           <p className="text-sm">Don't have an account?</p>
           <Link
             to={ROUTES.SIGN_UP}
-            className="font-bold text-green-medium hover:text-green-medium_hover"
+            className="font-bold text-blue-medium hover:text-blue-medium_hover"
           >
             Sign Up
           </Link>
