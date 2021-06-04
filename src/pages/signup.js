@@ -37,6 +37,7 @@ const SignUp = () => {
           fullName,
           emailAddress: email.toLowerCase(),
           following: [],
+          followers: [],
           dateCreated: Date.now(),
         });
 
@@ -45,6 +46,7 @@ const SignUp = () => {
         setError(error.message);
       }
     } else {
+      setUsername('');
       setError('That username already exists');
     }
   };

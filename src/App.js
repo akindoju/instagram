@@ -4,7 +4,6 @@ import * as ROUTES from './constants/routes';
 import useAuthListener from './hooks/use-auth-listener';
 import UserContext from './context/user';
 import ProtectedRoutes from './helpers/ProtectedRoute';
-import IsUserLoggedIn from './helpers/IsUserLoggedIn';
 import Spinner from './components/Spinner';
 
 //using lazy loader to pull in only needed components
@@ -22,24 +21,9 @@ function App() {
       <Router>
         <Suspense fallback={<Spinner />}>
           <Switch>
-            <IsUserLoggedIn
-              path={ROUTES.LOGIN}
-              loggedInPath={ROUTES.DASHBOARD}
-              user={user}
-            >
-              <Login />
-            </IsUserLoggedIn>
-
-            <IsUserLoggedIn
-              path={ROUTES.SIGN_UP}
-              loggedInPath={ROUTES.DASHBOARD}
-              user={user}
-            >
-              <SignUp />
-            </IsUserLoggedIn>
-
+            <Route path={ROUTES.SIGN_UP} component={SignUp} />
+            <Route path={ROUTES.LOGIN} component={Login} />
             <Route path={ROUTES.PROFILE} component={Profile} />
-
             <ProtectedRoutes path={ROUTES.DASHBOARD} exact user={user}>
               <Dashboard />
             </ProtectedRoutes>

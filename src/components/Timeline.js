@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import Skeleton from 'react-loading-skeleton';
+import LoggedInUserContext from '../context/loggedInUser';
 import usePhotos from '../hooks/use-photos';
 import Post from './Post/Post';
 
 const Timeline = () => {
-  const { photos } = usePhotos();
+  const { user } = useContext(LoggedInUserContext);
+  const { photos } = usePhotos(user);
 
   return (
     <div className="container col-span-2">
