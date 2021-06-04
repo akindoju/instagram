@@ -1,11 +1,11 @@
-import useUser from '../../hooks/use-user';
 import User from './User';
 import Suggestions from './Suggestions';
+import { useContext } from 'react/cjs/react.production.min';
+import LoggedInUserContext from '../../context/loggedInUser';
 
 const SideBar = () => {
-  const {
-    user: { docId, fullName, username, userId, following },
-  } = useUser();
+  const { user: { docId = '', fullName, username, userId, following } = {} } =
+    useContext(LoggedInUserContext);
 
   return (
     <div>
