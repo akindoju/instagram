@@ -10,7 +10,7 @@ const Dashboard = ({ user: loggedInUser }) => {
   const { user } = useUser(loggedInUser.uid);
 
   useEffect(() => {
-    document.title = 'Instagram';
+    document.title = 'Kik';
   }, []);
 
   return (

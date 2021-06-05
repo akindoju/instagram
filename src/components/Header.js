@@ -17,12 +17,8 @@ const Header = () => {
         <div className="flex justify-between h-full">
           <div className="text-gray-700 text-center flex items-center align-items cursor-pointer">
             <h1 className="flex justify-content w-full">
-              <Link to={ROUTES.DASHBOARD} aria-label="Instagram Logo">
-                <img
-                  src="/images/logo.png"
-                  alt="Instagram"
-                  className="mt-2 w-6/12"
-                />
+              <Link to={ROUTES.DASHBOARD} aria-label="Kik Logo">
+                <img src="/images/logo.png" alt="kik" className="mt-2 w-4/5" />
               </Link>
             </h1>
           </div>

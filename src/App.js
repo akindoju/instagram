@@ -21,8 +21,8 @@ function App() {
       <Router>
         <Suspense fallback={<Spinner />}>
           <Switch>
-            <Route path={ROUTES.SIGN_UP} component={SignUp} />
             <Route path={ROUTES.LOGIN} component={Login} />
+            <Route path={ROUTES.SIGN_UP} component={SignUp} />
             <Route path={ROUTES.PROFILE} component={Profile} />
             <ProtectedRoutes path={ROUTES.DASHBOARD} exact user={user}>
               <Dashboard />
